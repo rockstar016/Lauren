@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLayoutBg"
+    tools:context="earthist.rock.lauren.fragment.WanderinGypCFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="match_parent"
+            android:id="@+id/image_support_photo"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_5sdp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="The WanderinGypC"
+            android:id="@+id/txt_star_name"
+            android:layout_below="@+id/image_support_photo"
+            android:layout_alignLeft="@+id/image_support_photo"
+            android:layout_alignStart="@+id/image_support_photo"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center"
+        android:background="@color/colorWhite"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp">
+        <Button
+            android:layout_width="@dimen/detailed_social_button_width"
+            android:layout_height="@dimen/detailed_social_button_width"
+            android:id="@+id/button_facebook"
+            android:background="@drawable/custom_facebook_icon"
+            android:layout_margin="@dimen/_10sdp" />
+
+        <Button
+            android:layout_width="@dimen/detailed_social_button_width"
+            android:layout_height="@dimen/detailed_social_button_width"
+            android:id="@+id/button_twitter"
+            android:background="@drawable/custom_twitter_icon"
+            android:layout_margin="@dimen/_10sdp" />
+
+        <Button
+            android:layout_width="@dimen/detailed_social_button_width"
+            android:layout_height="@dimen/detailed_social_button_width"
+            android:id="@+id/button_photo"
+            android:background="@drawable/custom_photo_icon"
+            android:layout_margin="@dimen/_10sdp" />
+
+        <Button
+            android:layout_width="@dimen/detailed_social_button_width"
+            android:layout_height="@dimen/detailed_social_button_width"
+            android:id="@+id/button_youtube"
+            android:background="@drawable/custom_video_icon"
+            android:layout_margin="@dimen/_10sdp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="read more"
+            android:id="@+id/button_readmore"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView4"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/txt_star_profile"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                android:lineSpacingMultiplier="1.0"
+                android:maxLines="5" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="choose love cause bio"
+                android:id="@+id/button_cause_bio"
+                android:layout_below="@+id/linearLayout"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultStarDetailButton"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="other earthist for this cause"
+                android:id="@+id/button_related_earthist"
+                android:layout_below="@+id/linearLayout"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultStarDetailButton"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

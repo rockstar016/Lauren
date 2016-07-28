@@ -1,0 +1,12 @@
+<resources>
+    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="detailed_social_button_width">@dimen/_18sdp</dimen>
+    <dimen name="round_button_height">@dimen/_25sdp</dimen>
+    <dimen name="round_button_padding">@dimen/_10sdp</dimen>
+    <dimen name="round_button_corner">@dimen/_14sdp</dimen>
+    <dimen name="round_button_corner1">@dimen/_2sdp</dimen>
+    <dimen name="default_button_textsize">@dimen/_16sdp</dimen>
+</resources>
