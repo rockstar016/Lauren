@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="earthist.rock.lauren.MainScreenActivity"
+    android:background="@color/colorLayoutBg">
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_pager"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/indicator"
+        android:layout_gravity="left|bottom"
+        app:ci_drawable_unselected="@mipmap/circle_grey"
+        app:ci_drawable="@mipmap/circle_green"
+        android:layout_marginBottom="73dp"
+        android:layout_alignBottom="@+id/view_pager"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:id="@+id/button_star_love"
+        android:layout_gravity="right|top"
+        android:src="@mipmap/like_icon"
+        android:background="@android:color/transparent"
+        android:textAlignment="gravity"
+        android:scaleType="fitXY"
+        android:layout_alignBottom="@+id/indicator"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
