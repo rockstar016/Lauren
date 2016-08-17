@@ -42,5 +42,48 @@
         <item name="android:textSize">@dimen/default_button_textsize</item>
         <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
     </style>
+    <style name="Wanderingypc_button_style">
+        <item name="android:layout_height">@dimen/round_button_height</item>
+        <item name="android:background">@drawable/wanderingypc_select_button</item>
+        <item name="android:textSize">@dimen/default_button_textsize</item>
+        <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
+    </style>
+    <style name="TextField" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="CardNumber" parent="@style/TextField">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:hint">Card Number</item>
+    </style>
+    <style name="SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+    </style>
 
+    <style name="Spinner" parent="@android:style/Widget.Spinner">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+    </style>
+
+    <style name="ExpMonth" parent="@style/Spinner">
+        <item name="android:entries">@array/month_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="ExpYear" parent="@style/Spinner">
+        <item name="android:entries">@array/year_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.8</item>
+    </style>
+
+    <style name="Currency" parent="@style/Spinner">
+        <item name="android:entries">@array/currency_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="CVC" parent="@style/TextField">
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:hint">CVC</item>
+        <item name="android:layout_weight">0.7</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
 </resources>

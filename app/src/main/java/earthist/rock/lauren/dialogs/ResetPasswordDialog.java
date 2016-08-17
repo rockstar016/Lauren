@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import earthist.rock.lauren.R;
+import earthist.rock.lauren.datas.CommonDatas;
 
 /**
  * Created by RockStar-0116 on 2016.07.19.
@@ -22,7 +23,7 @@ import earthist.rock.lauren.R;
 public class ResetPasswordDialog extends Dialog {
     Context _this;
     Button m_bt_yes;
-    EditText txt_user_name, txt_user_password;
+    EditText txt_user_name;
     View.OnClickListener m_listener;
     public ResetPasswordDialog(Context context){
         super(context);
@@ -45,7 +46,7 @@ public class ResetPasswordDialog extends Dialog {
         setContentView(R.layout.dialog_reset_pass);
         m_bt_yes = (Button)findViewById(R.id.button_reset_password);
         txt_user_name = (EditText) findViewById(R.id.txt_reset_username);
-        txt_user_password = (EditText) findViewById(R.id.txt_reset_password);
+
         m_bt_yes.setOnClickListener(m_listener);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
@@ -53,4 +54,16 @@ public class ResetPasswordDialog extends Dialog {
     public void setButtonClickListener(View.OnClickListener m_listener){
         this.m_listener = m_listener;
     }
+    public int validForm(){
+        if(getEmailText().isEmpty()){
+            return CommonDatas.REGISTER_INPUT_INVALID_ERROR;
+        }
+        return CommonDatas.REGISTER_INPUT_VALID;
+    }
+    public String getEmailText(){
+        return txt_user_name.getText().toString();
+    }
+
+    public EditText getEmailTextInstance(){return txt_user_name;}
+
 }

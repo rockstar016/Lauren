@@ -117,14 +117,14 @@
                 android:layout_margin="@dimen/_3sdp" />
         </GridLayout>
     </LinearLayout>
-
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/button_facebook_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@mipmap/login_facebook" />
-
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="40dp" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txt_user_name"
             android:layout_gravity="center_horizontal"
-            android:hint="User Name"
+            android:hint="User Email"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp" />
 

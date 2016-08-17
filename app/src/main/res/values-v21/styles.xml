@@ -38,4 +38,5 @@
         <item name="android:textSize">@dimen/default_button_textsize</item>
         <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
     </style>
+
 </resources>

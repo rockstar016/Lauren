@@ -16,8 +16,8 @@
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:id="@+id/imageView6"
-            android:src="@drawable/logo"
-            android:layout_margin="@dimen/_10sdp" />
+            android:src="@drawable/title_logo"
+            android:layout_margin="@dimen/_5sdp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,11 +25,12 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/txt_support_name"
             android:text="sdf"
-            android:textSize="@dimen/_25sdp"
-            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp" />
     </LinearLayout>
 
 
@@ -38,15 +39,11 @@
         android:layout_height="match_parent"
         android:id="@+id/img_star_photo_first"
         android:layout_gravity="center_horizontal"
-        android:scaleType="fitXY"
-        android:layout_below="@+id/linearLayout5" />
+        android:scaleType="center"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_110sdp" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/gradient_transparent">
-
-    </FrameLayout>
 </RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "798291468510",
+    "firebase_url": "https://laurenproject-77a77.firebaseio.com",
+    "project_id": "laurenproject-77a77",
+    "storage_bucket": "laurenproject-77a77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798291468510:android:13df7adaeb7fa295",
+        "android_client_info": {
+          "package_name": "earthist.rock.lauren"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798291468510-j8ra4qg4429hqemeae1odfi1d0j59rof.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "earthist.rock.lauren",
+            "certificate_hash": "CB519F2063C52666053698BD32191DD3FD4AC810"
+          }
+        },
+        {
+          "client_id": "798291468510-d9apqs1doheb84tu4urb8fi8c3le3qm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfFPUXdihhZ52NmLOmnDYSXKIOHrJSkCA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798291468510-d9apqs1doheb84tu4urb8fi8c3le3qm7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

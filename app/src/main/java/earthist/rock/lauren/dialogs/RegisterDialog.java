@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import earthist.rock.lauren.R;
+import earthist.rock.lauren.datas.CommonDatas;
 
 /**
  * Created by RockStar-0116 on 2016.07.19.
@@ -44,7 +45,6 @@ public class RegisterDialog extends Dialog {
         setCanceledOnTouchOutside(false);
         setCancelable(false);
     }
-
     @Override
     public void onBackPressed() {
         dismiss();
@@ -52,5 +52,21 @@ public class RegisterDialog extends Dialog {
     public void setButtonClickListener(View.OnClickListener m_listener){
         this.m_listener = m_listener;
     }
-
+    public int validForm(){
+        if(getEmailText().isEmpty() || getPasswordText().isEmpty()){
+            return CommonDatas.REGISTER_INPUT_INVALID_ERROR;
+        }
+        else if(getPasswordText().length() < 6){
+            return CommonDatas.REGISTER_INPUT_PASSWORD_SIX_ERROR;
+        }
+        return CommonDatas.REGISTER_INPUT_VALID;
+    }
+    public String getEmailText(){
+        return txt_user_name.getText().toString();
+    }
+    public String getPasswordText(){
+        return txt_user_password.getText().toString();
+    }
+    public EditText getEmailTextInstance(){return txt_user_name;}
+    public EditText getPasswordTextInstance(){return txt_user_password;}
 }

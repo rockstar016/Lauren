@@ -1,7 +1,6 @@
 package earthist.rock.lauren;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
@@ -11,12 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import earthist.rock.lauren.commonControllerModels.IsUserLoggedIn;
+import com.google.firebase.auth.FirebaseAuth;
 import earthist.rock.lauren.datas.cause_data_list;
 import earthist.rock.lauren.datas.color_list_based_cause;
 import earthist.rock.lauren.datas.star_datas_list;
@@ -24,7 +18,6 @@ import earthist.rock.lauren.datas.support_profile_list;
 import earthist.rock.lauren.fragment.CauseBioFragment;
 import earthist.rock.lauren.fragment.OtherEarthistFragment;
 import earthist.rock.lauren.fragment.WanderinGypCFragment;
-
 public class Wander_GypCActivity extends AppCompatActivity {
     private Button invest_button;
     private int current_fragement_idx;
@@ -33,6 +26,7 @@ public class Wander_GypCActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         setContentView(R.layout.activity_star_detail);
         Bundle b = getIntent().getExtras();
         int value = -1;
@@ -49,50 +43,30 @@ public class Wander_GypCActivity extends AppCompatActivity {
             }
         });
     }
-    private void showDialog(){
-        final ProgressDialog mProgressDialog;
-        mProgressDialog = new ProgressDialog(Wander_GypCActivity.this);
-        mProgressDialog.setMessage("Data Loading...");
-        mProgressDialog.setIndeterminate(false);
-        mProgressDialog.show();
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                // this code will be executed after 2 seconds
-                mProgressDialog.dismiss();
-            }
-        }, 1000);
-    }
     public void onClickinvest(){
-        if(IsUserLoggedIn.isLoggedIn(getApplicationContext()) == false){
-            int param = current_fragement_idx % 5;
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if(auth.getCurrentUser() == null){
             Intent i = new Intent(Wander_GypCActivity.this, LoginDialogActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt("index",param);
-            i.putExtras(bundle);
             startActivityForResult(i, LOGINACTIVITY_RESULT);
         }
         else{
             gotoInvestActivity();
         }
     }
-    private void gotoInvestActivity(){
-
+    private void gotoInvestActivity( ){
+        Intent i =new Intent(Wander_GypCActivity.this, CardRegisterActivity.class);
+        i.putExtra("staridx",current_fragement_idx % 5);
+        startActivity(i);
+        finish();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == LOGINACTIVITY_RESULT)
-        {
-            if(resultCode == Activity.RESULT_OK)
-            {
-
-                Intent i = new Intent(Wander_GypCActivity.this, CardRegisterActivity.class);
-                startActivity(i);
-                finish();
+        if(requestCode == LOGINACTIVITY_RESULT) {
+            if(resultCode == Activity.RESULT_OK) {
+                gotoInvestActivity();
             }
         }
     }
-
     public void setActonBarTextStarIdx(int value){
         actionbar.setHomeButtonEnabled(true);
         actionbar.setDisplayHomeAsUpEnabled(true);
@@ -123,8 +97,7 @@ public class Wander_GypCActivity extends AppCompatActivity {
                 FragmentSetupStarIdx(current_fragement_idx - 5);
                 setActonBarTextStarIdx(current_fragement_idx);
             }
-            else if(current_fragement_idx > Fragment_Index.ArtIsTherapyCauseBio && current_fragement_idx < 15)
-            {
+            else if(current_fragement_idx > Fragment_Index.ArtIsTherapyCauseBio && current_fragement_idx < 15) {
                 FragmentSetupStarIdx(current_fragement_idx - 10);
                 setActonBarTextStarIdx(current_fragement_idx);
             }
@@ -142,8 +115,7 @@ public class Wander_GypCActivity extends AppCompatActivity {
             FragmentSetupStarIdx(current_fragement_idx - 5);
             setActonBarTextStarIdx(current_fragement_idx);
         }
-        else if(current_fragement_idx > Fragment_Index.ArtIsTherapyCauseBio && current_fragement_idx < 15)
-        {
+        else if(current_fragement_idx > Fragment_Index.ArtIsTherapyCauseBio && current_fragement_idx < 15) {
             FragmentSetupStarIdx(current_fragement_idx - 10);
             setActonBarTextStarIdx(current_fragement_idx);
         }
@@ -163,7 +135,6 @@ public class Wander_GypCActivity extends AppCompatActivity {
         Fragment frag = OtherEarthistFragment.newInstance(current_step);
         LoadFragment(frag);
     }
-
     private void LoadFragment(Fragment frag) {
         while (getSupportFragmentManager().getBackStackEntryCount() > 0)
         {
@@ -173,4 +144,5 @@ public class Wander_GypCActivity extends AppCompatActivity {
                 .replace(R.id.main_fragment_container, frag)
                 .commit();
     }
+
 }

@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashActivity extends AppCompatActivity {
     private boolean isRunning;
     @Override
@@ -25,10 +28,9 @@ public class SplashActivity extends AppCompatActivity {
             {
                 try
                 {
-                    SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    SharedPreferences.Editor ed = sp.edit();
-                    ed.putString("token","");
-                    ed.commit();
+                    FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+                    if(user != null){FirebaseAuth.getInstance().signOut();
+                    }
                     Thread.sleep(3000);
 
                 } catch (Exception e)
@@ -55,6 +57,7 @@ public class SplashActivity extends AppCompatActivity {
             Intent i = new Intent(SplashActivity.this, MainScreenActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+
             finish();
         }
     }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SplashActivity">
+    tools:context=".SplashActivity"
+    android:background="#8bb0f0">
 
     <ImageView
         android:layout_width="match_parent"
@@ -19,8 +20,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="46dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="92dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

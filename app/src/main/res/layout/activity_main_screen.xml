@@ -23,7 +23,7 @@
         android:layout_gravity="left|bottom"
         app:ci_drawable_unselected="@mipmap/circle_grey"
         app:ci_drawable="@mipmap/circle_green"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="@dimen/_95sdp"
         android:layout_alignBottom="@+id/view_pager"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -37,8 +37,8 @@
         android:background="@android:color/transparent"
         android:textAlignment="gravity"
         android:scaleType="fitXY"
-        android:layout_alignBottom="@+id/indicator"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20sdp" />
 
 </RelativeLayout>

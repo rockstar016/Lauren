@@ -17,12 +17,13 @@
 
         <ImageView
             android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_110sdp"
             android:id="@+id/image_support_photo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
 
-            android:padding="@dimen/_5sdp" />
+            android:padding="@dimen/_5sdp"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -67,28 +68,30 @@
             android:layout_width="@dimen/detailed_social_button_width"
             android:layout_height="@dimen/detailed_social_button_width"
             android:id="@+id/button_facebook"
-            android:background="@drawable/custom_facebook_icon"
             android:layout_margin="@dimen/_10sdp" />
 
         <Button
             android:layout_width="@dimen/detailed_social_button_width"
             android:layout_height="@dimen/detailed_social_button_width"
             android:id="@+id/button_twitter"
-            android:background="@drawable/custom_twitter_icon"
             android:layout_margin="@dimen/_10sdp" />
 
         <Button
             android:layout_width="@dimen/detailed_social_button_width"
             android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_photo"
-            android:background="@drawable/custom_photo_icon"
+            android:id="@+id/button_instagram"
             android:layout_margin="@dimen/_10sdp" />
 
         <Button
             android:layout_width="@dimen/detailed_social_button_width"
             android:layout_height="@dimen/detailed_social_button_width"
             android:id="@+id/button_youtube"
-            android:background="@drawable/custom_video_icon"
+            android:layout_margin="@dimen/_10sdp" />
+
+        <Button
+            android:layout_width="@dimen/detailed_social_button_width"
+            android:layout_height="@dimen/detailed_social_button_width"
+            android:id="@+id/button_sound"
             android:layout_margin="@dimen/_10sdp" />
     </LinearLayout>
 

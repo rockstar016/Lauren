@@ -131,7 +131,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="debit"
+            android:text="link card"
             android:id="@+id/button_debit_card"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -143,19 +143,5 @@
             android:textColor="@color/colorWhite"
             android:layout_margin="@dimen/_5sdp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="credit"
-            android:id="@+id/button_credit_card"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/invest_gradient_button"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView"
-            android:layout_weight="1"
-            android:textColor="@color/colorWhite"
-            android:layout_margin="@dimen/_5sdp" />
     </LinearLayout>
 </RelativeLayout>
