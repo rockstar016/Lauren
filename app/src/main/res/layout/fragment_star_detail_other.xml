@@ -1,137 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLayoutBg"
-    tools:context="earthist.rock.lauren.fragment.WanderinGypCFragment">
+    tools:context="earthist.rock.lauren.fragment.WanderinGypCFragment"
+    app:layout_anchorGravity="bottom">
 
+    <include layout="@layout/layout_photo_background"></include>
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:background="@color/colorWhite">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
-            android:id="@+id/image_support_photo"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:padding="@dimen/_5sdp"
-            android:scaleType="fitCenter" />
+            android:layout_height="@dimen/_100sdp"
+            android:id="@+id/image_profile_photo"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="@dimen/_100sdp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="The WanderinGypC"
-            android:id="@+id/txt_star_name"
-            android:layout_below="@+id/image_support_photo"
-            android:layout_alignLeft="@+id/image_support_photo"
-            android:layout_alignStart="@+id/image_support_photo"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_18sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:gravity="center"
-        android:background="@color/colorWhite"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp">
-        <Button
-            android:layout_width="@dimen/detailed_social_button_width"
-            android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_facebook"
-            android:layout_margin="@dimen/_10sdp" />
-
-        <Button
-            android:layout_width="@dimen/detailed_social_button_width"
-            android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_twitter"
-            android:layout_margin="@dimen/_10sdp" />
-
-        <Button
-            android:layout_width="@dimen/detailed_social_button_width"
-            android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_instagram"
-            android:layout_margin="@dimen/_10sdp" />
-
-        <Button
-            android:layout_width="@dimen/detailed_social_button_width"
-            android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_youtube"
-            android:layout_margin="@dimen/_10sdp" />
-
-        <Button
-            android:layout_width="@dimen/detailed_social_button_width"
-            android:layout_height="@dimen/detailed_social_button_width"
-            android:id="@+id/button_sound"
-            android:layout_margin="@dimen/_10sdp" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView4"
-        android:layout_weight="1"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:background="@color/colorWhite">
-
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:id="@+id/scrollView4"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@color/colorWhite_transparent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_10sdp">
 
-            <TextView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/txt_star_profile"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:lineSpacingExtra="@dimen/_5sdp"
-                android:lineSpacingMultiplier="1.0"
-                android:maxLines="30" />
+                android:weightSum="1">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="choose love cause bio"
-                android:id="@+id/button_cause_bio"
-                android:layout_below="@+id/linearLayout"
-                android:layout_centerHorizontal="true"
-                style="@style/DefaultStarDetailButton"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="@dimen/_10sdp" />
+                <android.support.v7.widget.CardView
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite_transparent"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="other earthist for this cause"
-                android:id="@+id/button_related_earthist"
-                android:layout_below="@+id/linearLayout"
-                android:layout_centerHorizontal="true"
-                style="@style/DefaultStarDetailButton"
-                android:textColor="@color/colorPrimary" />
-        </LinearLayout>
-    </ScrollView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="The WanderinGypC"
+                        android:id="@+id/txt_star_name"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_18sdp"
+                        android:layout_gravity="center"
+                        tools:ignore="RtlHardcoded"
+                        android:textAlignment="gravity"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center" />
+                </android.support.v7.widget.CardView>
 
-</LinearLayout>
+                <include layout="@layout/cardview_profile_buttonbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></include>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/txt_star_profile"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="12.50dp"
+                    android:lineSpacingMultiplier="1.0"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@color/colorWhite_transparent"
+                    android:maxLines="30"
+                    android:keepScreenOn="true"
+                    android:isScrollContainer="false" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="choose love cause bio"
+                    android:id="@+id/button_cause_bio1"
+                    style="@style/DefaultStarDetailButton"
+                    android:alpha="1" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="choose love cause bio"
+                    android:id="@+id/button_cause_bio2"
+                    style="@style/DefaultStarDetailButton"
+                    android:alpha="1"
+                    android:layout_marginBottom="@dimen/_10sdp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</FrameLayout>

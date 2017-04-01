@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2dcb74</color>
-    <color name="colorPrimaryDark">#2dcb74</color>
+    <color name="colorPrimary">#41de87</color>
+    <color name="colorPrimaryDark">#28ae64</color>
     <color name="colorAccent">#1b786a</color>
 
-    <color name="color_wander_gypc_theme_color">#2dcb74</color>
+
     <color name="color_detailview_background">#9fb4f4f9</color>
 
     <color name="color_choose_love_cause">#dc9bc5</color>
@@ -12,15 +12,18 @@
     <color name="color_sex_equality_cause">#b09aca</color>
     <color name="color_income_equality_cause">#80c0a4</color>
     <color name="color_art_therapy_cause">#f3797e</color>
-
-
-
+    <color name="color_transparent_title_weak">#55000000</color>
+    <color name="color_transparent_title_strong">#bb000000</color>
+    <color name="pink">#FF69B4</color>
     <color name="colorLayoutBg">#f1f5f7</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite_transparent">#aaffffff</color>
     <color name="colorDetailedButtonText">#72cec0</color>
     <color name="colorDetailedButtonText1">#33a6d7</color>
     <color name="colorHomeText">#9e9e9e</color>
     <color name="colorDetailedButton">#e1f4f1</color>
 
+    <color name="white">#6fffffff</color>
+    <color name="grey">#1f000000</color>
 
 </resources>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import earthist.rock.lauren.R;
 import earthist.rock.lauren.datas.cause_data_list;
-import earthist.rock.lauren.datas.color_list_based_cause;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,14 +45,12 @@ public class CauseBioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_cause_bio_detail,container,false);
-        mParam1 -= 5;
         txt_cause_content = (TextView)rootview.findViewById(R.id.txt_cause_content);
         txt_cause_title = (TextView)rootview.findViewById(R.id.txt_cause_name);
         image_cause_symbol = (ImageView)rootview.findViewById(R.id.image_cause_photo);
-        txt_cause_content.setText(cause_data_list.cause_content_array[mParam1]);
-        txt_cause_title.setText(cause_data_list.cause_title_array[mParam1] + " Cause Bio");
-        txt_cause_title.setTextColor(getResources().getColor(color_list_based_cause.cause_theme_color[mParam1]));
-        image_cause_symbol.setImageResource(cause_data_list.cause_symbol_image[mParam1]);
+        txt_cause_content.setText(cause_data_list.cause_content_array[mParam1-7]);
+        txt_cause_title.setText(cause_data_list.cause_title_array[mParam1-7] + " Cause Bio");
+        image_cause_symbol.setImageResource(cause_data_list.cause_symbol_image[mParam1-7]);
         return rootview;
     }
 }

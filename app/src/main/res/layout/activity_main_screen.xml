@@ -7,15 +7,6 @@
     tools:context="earthist.rock.lauren.MainScreenActivity"
     android:background="@color/colorLayoutBg">
 
-
-    <android.support.v4.view.ViewPager
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/view_pager"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <me.relex.circleindicator.CircleIndicator
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
@@ -28,17 +19,40 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <android.support.v4.view.ViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_alignParentStart="true" />
+
     <ImageButton
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/button_star_love"
         android:layout_gravity="right|top"
-        android:src="@mipmap/like_icon"
-        android:background="@android:color/transparent"
+        android:src="@drawable/ic_favorite_white_24dp"
         android:textAlignment="gravity"
         android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_20sdp" />
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:tint="@color/pink" />
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+        android:background="#33A6D7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </LinearLayout>
 
 </RelativeLayout>

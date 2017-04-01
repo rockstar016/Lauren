@@ -7,8 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="facebook_appid">180660300333</string>
-    <string name="firebase_url">https://laurenproject-77a77.firebaseio.com</string>
+    <string name="facebook_appid">627973284052159</string>
     <string-array name="currency_array">
         <item>Currency (optional)</item>
         <item>Unspecified</item>

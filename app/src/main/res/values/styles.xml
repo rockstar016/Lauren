@@ -28,7 +28,7 @@
     <style name="DefaultStarDetailButton">
         <item name="android:background">@drawable/cause_bio_select_button</item>
         <item name="android:textSize">@dimen/default_button_textsize</item>
-        <item name="android:textColor">@color/colorDetailedButtonText1</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_marginLeft">@dimen/_10sdp</item>
         <item name="android:layout_marginRight">@dimen/_10sdp</item>
         <item name="android:layout_marginTop">@dimen/_2sdp</item>
@@ -40,13 +40,13 @@
         <item name="android:layout_height">@dimen/round_button_height</item>
         <item name="android:background">@drawable/wanderingypc_select_button</item>
         <item name="android:textSize">@dimen/default_button_textsize</item>
-        <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
     <style name="Wanderingypc_button_style">
         <item name="android:layout_height">@dimen/round_button_height</item>
         <item name="android:background">@drawable/wanderingypc_select_button</item>
         <item name="android:textSize">@dimen/default_button_textsize</item>
-        <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
     <style name="TextField" parent="@android:style/Widget.EditText">
         <item name="android:layout_height">wrap_content</item>
@@ -85,5 +85,17 @@
         <item name="android:hint">CVC</item>
         <item name="android:layout_weight">0.7</item>
         <item name="android:layout_width">0dp</item>
+    </style>
+    <style name="CustomTextView">
+
+        <item name="android:background">@drawable/grey_rectangle</item>
+        <item name="android:layout_height">@dimen/_10sdp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/_5sdp</item>
+    </style>
+
+    <style name="dialog_anim_style">
+        <item name="android:windowEnterAnimation">@anim/show_animation</item>
+        <item name="android:windowExitAnimation">@anim/hide_animation</item>
     </style>
 </resources>

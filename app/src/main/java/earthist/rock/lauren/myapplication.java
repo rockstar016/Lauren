@@ -21,27 +21,8 @@ public class myapplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        Firebase.setAndroidContext(this);
         FacebookSdk.sdkInitialize(this);
         // Initialize the SDK before executing any other operations,
         AppEventsLogger.activateApp(this);
-        getHashKey();
-    }
-
-    public void getHashKey(){
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "earthist.rock.lauren",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash value:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-
-        } catch (NoSuchAlgorithmException e) {
-
-        }
     }
 }

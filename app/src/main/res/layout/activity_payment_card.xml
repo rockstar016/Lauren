@@ -7,7 +7,6 @@
     tools:context="earthist.rock.lauren.PaymentCardActivity"
     android:paddingLeft="@dimen/_10sdp"
     android:paddingRight="@dimen/_10sdp">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,26 +17,19 @@
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_20sdp" />
-
     <EditText android:id="@+id/txt_cardinfo_cardnumber" style="@style/CardNumber" android:nextFocusDown="@+id/spin_cardinfo_expmonth" android:nextFocusRight="@+id/spin_cardinfo_expmonth" android:nextFocusForward="@+id/spin_cardinfo_expmonth" />
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <Spinner android:id="@+id/spin_cardinfo_expmonth" style="@style/ExpMonth" android:nextFocusForward="@+id/spin_cardinfo_expyear" />
-
         <Spinner android:id="@+id/spin_cardinfo_expyear" style="@style/ExpYear" android:nextFocusForward="@+id/txt_cardinfo_cvc" />
-
-
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText android:id="@+id/txt_cardinfo_cvc" style="@style/CVC" android:nextFocusForward="@+id/spin_cardinfo_curreny" />
     </LinearLayout>
 

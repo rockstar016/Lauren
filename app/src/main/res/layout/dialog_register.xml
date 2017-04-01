@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorWhite"
-    tools:context="earthist.rock.lauren.dialogs.RegisterDialog">
+    tools:context="earthist.rock.lauren.dialogs.RegisterDialog"
+    android:padding="@dimen/_10sdp"
+    android:layout_width="330dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -19,15 +20,56 @@
         android:layout_margin="@dimen/_15sdp"
         android:textAlignment="center" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_regi_user_name"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextView"
+            android:hint="User Email"
+            android:layout_weight="1" />
+
+        <CheckBox
+            android:text="I have already email number."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chk_regi_show_password"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Input secret number from email"
+        android:id="@+id/explaination"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/_14sdp"
+        android:textAlignment="center" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txt_regi_user_name"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txt_regi_user_emailnumber"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:hint="User Email" />
+        style="@style/CustomTextView"
+        android:hint="Number from email"
+        />
 
     <EditText
         android:layout_width="match_parent"
@@ -39,12 +81,13 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        style="@style/CustomTextView"
         android:hint="Password" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="register"
+        android:text="verify email address"
         android:id="@+id/button_register"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/invest_gradient_button"

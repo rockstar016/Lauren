@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "798291468510-fp28avq4m5di3k60r9q8f8s5g7dldq7a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "earthist.rock.lauren",
+            "certificate_hash": "FB16757EE5FDDA0679CA1DE76A9B7347120D32E2"
+          }
+        },
+        {
+          "client_id": "798291468510-uqdjrdevphdadjdvmnopm04v4vlal9gj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "earthist.rock.lauren",
+            "certificate_hash": "52566EA7C222DC1850D9ACC370B297455B95F8CE"
+          }
+        },
+        {
           "client_id": "798291468510-j8ra4qg4429hqemeae1odfi1d0j59rof.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -27,11 +43,9 @@
           "client_type": 3
         }
       ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBfFPUXdihhZ52NmLOmnDYSXKIOHrJSkCA"
-        }
-      ],
+      "api_key": [ {
+        "current_key": "AIzaSyAX3mY0hGJaVEf6DIrATQkf9ZScLhMEZVk"
+      }],
       "services": {
         "analytics_service": {
           "status": 1

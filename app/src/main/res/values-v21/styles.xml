@@ -4,7 +4,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -12,7 +12,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
     <style name="customdialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="windowNoTitle">true</item>
@@ -23,20 +23,11 @@
         <item name="android:background">@drawable/round_accent_button_selector</item>
         <item name="android:textSize">@dimen/default_button_textsize</item>
     </style>
-    <style name="DefaultStarDetailButton">
-        <item name="android:background">@drawable/cause_bio_select_button</item>
-        <item name="android:textSize">@dimen/default_button_textsize</item>
-        <item name="android:textColor">@color/colorDetailedButtonText1</item>
-        <item name="android:layout_marginLeft">@dimen/_10sdp</item>
-        <item name="android:layout_marginRight">@dimen/_10sdp</item>
-        <item name="android:layout_marginTop">@dimen/_1sdp</item>
-        <item name="android:layout_marginBottom">@dimen/_1sdp</item>
-    </style>
     <style name="Wanderingypc_button_style">
         <item name="android:layout_height">@dimen/round_button_height</item>
         <item name="android:background">@drawable/wanderingypc_select_button</item>
         <item name="android:textSize">@dimen/default_button_textsize</item>
-        <item name="android:textColor">@color/color_wander_gypc_theme_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
 </resources>

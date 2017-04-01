@@ -1,15 +1,17 @@
 package earthist.rock.lauren;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,26 +19,26 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.stripe.android.Stripe;
 import com.stripe.android.TokenCallback;
+import com.stripe.android.exception.AuthenticationException;
 import com.stripe.android.model.Card;
 import com.stripe.android.model.Token;
-import com.stripe.exception.APIConnectionException;
-import com.stripe.exception.APIException;
-import com.stripe.exception.AuthenticationException;
-import com.stripe.exception.CardException;
-import com.stripe.exception.InvalidRequestException;
-import com.stripe.model.Customer;
-import com.stripe.model.Subscription;
-import java.util.HashMap;
+
+import org.json.JSONObject;
+
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import earthist.rock.lauren.Utils.AsyncResponse;
+import earthist.rock.lauren.Utils.ServerInformation;
+import earthist.rock.lauren.Utils.UserInfoManagement;
+import earthist.rock.lauren.dialogs.ThanksDialog;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class PaymentCardActivity extends AppCompatActivity implements View.OnClickListener{
@@ -46,11 +48,9 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
     Spinner monthSpinner;
     Spinner yearSpinner;
     ProgressDialog m_prog_dialog;
-    private static final String CURRENCY_UNSPECIFIED = "Unspecified";
-    private static final String STRIPE_PUBLISHABLE_KEY = "pk_test_uVTCJTso0HTJLz1o5xTEwlg8";
+    private static final String STRIPE_PUBLISHABLE_KEY = "pk_live_yb8coGpyOukzs1bAP9Nqbjui";
     private int current_star_idx;
     private Stripe m_stripe;
-    public FirebaseUser current_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +71,14 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
         this.monthSpinner = (Spinner) findViewById(R.id.spin_cardinfo_expmonth);
         this.yearSpinner = (Spinner) findViewById(R.id.spin_cardinfo_expyear);
         this.saveButton = (Button)findViewById(R.id.bt_cardinfo_save);
+
+        try {
+            m_stripe = new Stripe(STRIPE_PUBLISHABLE_KEY);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+
         saveButton.setOnClickListener(this);
-        showProgress("Getting information");
-        getPublishSecretKey();
-        current_user = FirebaseAuth.getInstance().getCurrentUser();
     }
     @Override
     public void onClick(View view) {
@@ -96,12 +100,10 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
         return true;
     }
     public String getCardNumber() {
-        return "4242424242424242";
-        //return this.cardNumber.getText().toString();
+        return this.cardNumber.getText().toString();
     }
     public String getCvc() {
-        return "123";
-        //return this.cvc.getText().toString();
+        return this.cvc.getText().toString();
     }
     public Integer getExpMonth() {
         return getInteger(this.monthSpinner);
@@ -116,38 +118,79 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
                 getExpMonth(),
                 getExpYear(),
                 getCvc());
-        card.setCurrency("usd");
         return card;
     }
-    private void createCustomer(Token token){
-        Map<String, Object> customerParams = new HashMap<String, Object>();
-        customerParams.put("source", token.getId()); // obtained with Stripe.js
-        customerParams.put("plan", "invest");
-        customerParams.put("email", current_user.getEmail());
-        HashMap<String, String> metadata = new HashMap<String, String>();
-        metadata.put("staridx",current_star_idx + "");
-        customerParams.put("metadata",metadata);
-        createCustomerClass customerClass = new createCustomerClass(customerParams,new AsyncResponse() {
+
+    public void displayWelcomeDialog(){
+        final ThanksDialog thanksDialog = new ThanksDialog(this);
+        thanksDialog.setButtonClickListener(new View.OnClickListener() {
             @Override
-            public void processFinish(Object output) {
-                Customer customer = (Customer)output;
-                if(customer != null) {
-                    saveDataToFirebase(customer.getId());
-                }
+            public void onClick(View view) {
+                gotoMainScreen();
+                thanksDialog.dismiss();
             }
         });
-        customerClass.execute();
+        thanksDialog.show();
     }
+    public void showErrorTryagain(){
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Sorry")
+                .setMessage("Error occured. Try again?")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        EngineFunction();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        gotoMainScreen();
+                    }
+                })
+                .show();
+    }
+
     private void EngineFunction(){
-        showProgress("Card Registering");
+
         Card card = generateCard();
         boolean card_validation = card.validateCard();
         if (card_validation) {
-            m_stripe.createToken(card, STRIPE_PUBLISHABLE_KEY,
-                    new TokenCallback() {
-                        public void onSuccess(Token token) {
-                            createCustomer(token);
-                            hideProgress();
+            showProgress("Card Registering");
+
+            m_stripe.createToken(card, new TokenCallback() {
+                        public void onSuccess(Token strip_token) {
+                            String token = UserInfoManagement.getToken(PaymentCardActivity.this);
+                            CheckoutService service = new CheckoutService(token, strip_token.getId(), current_star_idx + "", new AsyncResponse() {
+                                @Override
+                                public void processFinish(Object output) {
+                                    hideProgress();
+                                    try{
+                                        JSONObject result_object = new JSONObject((String) output);
+                                        if(result_object.getBoolean("result") == true){
+                                            displayWelcomeDialog();
+                                        }
+                                        else{
+                                            String error_reason = result_object.getString("data");
+                                            if(error_reason.equals("TokenError")){
+                                                UserInfoManagement.setToken(PaymentCardActivity.this,"");
+                                                Toast.makeText(PaymentCardActivity.this, "Sorry. Log in again, please", Toast.LENGTH_SHORT).show();
+                                                gotoMainScreen();
+                                            }
+                                            else if(error_reason.equals("PayError")){
+                                                showErrorTryagain();
+                                            }
+                                        }
+                                    }catch (Exception e){
+                                        showErrorTryagain();
+                                    }
+
+                                }
+                            });
+                            service.execute();
+
                         }
                         public void onError(Exception error) {
                             handleError(error.getLocalizedMessage());
@@ -164,9 +207,8 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
             handleError("The card details that you entered are invalid");
         }
     }
-    private void saveDataToFirebase(String customer_token){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("customer_token").child(current_user.getUid()).setValue(customer_token);
+
+    public void gotoMainScreen(){
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
@@ -184,6 +226,7 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
         m_prog_dialog.show();
     }
     private void hideProgress(){
+        if(m_prog_dialog == null) return;
         if(m_prog_dialog.isShowing())
             m_prog_dialog.dismiss();
     }
@@ -195,59 +238,41 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
             return 0;
         }
     }
-    @NonNull
-    private void getPublishSecretKey() {
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("stripe_secret").addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        com.stripe.Stripe.apiKey = dataSnapshot.getValue(String.class);
-                        m_stripe = new Stripe();
-                        hideProgress();
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.d("error","database connect error");
-                        Toast.makeText(PaymentCardActivity.this, "Connection is lost to server", Toast.LENGTH_SHORT).show();
-                        String stripe_secret = "";
-                        com.stripe.Stripe.apiKey = "";
-                        hideProgress();
-                    }
-                });
-    }
-    private class createCustomerClass extends AsyncTask {
-        Map<String, Object> customerParams;
-        public AsyncResponse delegate = null;//Call back interface
-        public createCustomerClass(Map<String, Object> params, AsyncResponse response)
-        {
-            customerParams = params;
-            delegate = response;
+
+    public class CheckoutService extends AsyncTask{
+        String token, stripe_token;
+        String star_idx;
+        AsyncResponse response;
+        OkHttpClient okhttp;
+        public CheckoutService(String token, String stripe_token, String start_idx, AsyncResponse response) {
+            this.token = token;
+            this.stripe_token = stripe_token;
+            this.star_idx = start_idx;
+            this.response = response;
+            okhttp = new OkHttpClient().newBuilder().connectTimeout(20, TimeUnit.SECONDS).build();
         }
         @Override
         protected void onPostExecute(Object o) {
-            delegate.processFinish(o);
+            response.processFinish(o);
         }
         @Override
-        protected Customer doInBackground(Object[] objects) {
+        protected Object doInBackground(Object[] objects) {
             try {
-                Customer customer = Customer.create(customerParams);
-                return customer;
-            } catch (AuthenticationException e) {
-                e.printStackTrace();
-            } catch (InvalidRequestException e) {
-                e.printStackTrace();
-            } catch (APIConnectionException e) {
-                e.printStackTrace();
-            } catch (CardException e) {
-                e.printStackTrace();
-            } catch (APIException e) {
+                RequestBody requestbody = new FormBody.Builder()
+                        .add("token", this.token)
+                        .add("stripe_token", this.stripe_token)
+                        .add("index", this.star_idx)
+                        .build();
+                Request request = new Request.Builder()
+                        .url(ServerInformation.PAYMENT)
+                        .post(requestbody)
+                        .build();
+                Response response = okhttp.newCall(request).execute();
+                return response.body().string();
+            }catch (Exception e){
                 e.printStackTrace();
             }
             return null;
         }
-    }
-    public interface AsyncResponse {
-        void processFinish(Object output);
     }
 }

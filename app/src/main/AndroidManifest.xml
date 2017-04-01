@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="earthist.rock.lauren">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,26 +18,31 @@
 
         <activity
             android:name=".MainScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Wander_GypCActivity" />
+        <activity android:name=".Wander_GypCActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginDialogActivity"
             android:theme="@style/customdialog" />
-        <activity android:name=".CardRegisterActivity" />
+        <activity android:name=".CardRegisterActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".PaymentCardActivity"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace ="android:theme"/>
+        <activity android:name=".PaymentCardActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
-
 </manifest>
