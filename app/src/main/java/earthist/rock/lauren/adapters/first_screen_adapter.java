@@ -11,7 +11,7 @@ import earthist.rock.lauren.fragment.fragment_star_profile_view;
  * Created by RockStar-0116 on 2016.07.14.
  */
 public class first_screen_adapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 7;
+        private static int NUM_ITEMS = 6;
         public first_screen_adapter(FragmentManager fragmentManager) {
             super(fragmentManager);
         }

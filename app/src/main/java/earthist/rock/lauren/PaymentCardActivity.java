@@ -73,8 +73,8 @@ public class PaymentCardActivity extends AppCompatActivity implements View.OnCli
         this.saveButton = (Button)findViewById(R.id.bt_cardinfo_save);
 
         try {
-            m_stripe = new Stripe(STRIPE_PUBLISHABLE_KEY);
-        } catch (AuthenticationException e) {
+            m_stripe = new Stripe(getApplicationContext(), STRIPE_PUBLISHABLE_KEY);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

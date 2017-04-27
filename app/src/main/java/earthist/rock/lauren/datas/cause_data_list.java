@@ -6,7 +6,7 @@ import earthist.rock.lauren.R;
  * Created by RockStar-0116 on 2016.07.24.
  */
 public class cause_data_list {
-    public static String[] cause_title_array = {"Choose Love","Water is Life", "Race Equity","Gender Equity","Sustainable Living","Healthy Living","Income Equity", "Wildlife Equity"};
+    public static String[] cause_title_array = {"Choose Love","Water is Life", /*"Race Equity",*/"Gender Equity","Sustainable Living","Healthy Living","Income Equity", "Wildlife Equity"};
     public static String[] cause_content_array = {
             ////choose love
             "All our causes revolve around this cause  for we believe that if love is the motive for all your choices then everything else" +
@@ -20,12 +20,12 @@ public class cause_data_list {
                     "people for a progressive today and a peaceful tomorrow.  We rise up in love to help protect that, which gives us life, our gracious Mother " +
                     "Earth and water, the life source of our great Mother.  Together, we can finally do what is right. ",
             //// race
-            "Our Race Equity cause focuses on the notion of being fair, the idea of justice rather than everyone being seen as equals.  " +
-                    "Different cultures have different ways to contribute to humanity and society and our differences are a cause for celebration. " +
-                    "We believe proper race equity starts with acknowledgement and understanding of history and current events so we can properly " +
-                    "steer the courses of our future towards collaboration, equality and peace. Many racial inequalities today are still the extended " +
-                    "products of colonialism. When we acknowledge and fully understand this we can start to correct it. For this reason, this cause " +
-                    "supports the amazing and heroic efforts of Falling Whistles and their push for peace.",
+//            "Our Race Equity cause focuses on the notion of being fair, the idea of justice rather than everyone being seen as equals.  " +
+//                    "Different cultures have different ways to contribute to humanity and society and our differences are a cause for celebration. " +
+//                    "We believe proper race equity starts with acknowledgement and understanding of history and current events so we can properly " +
+//                    "steer the courses of our future towards collaboration, equality and peace. Many racial inequalities today are still the extended " +
+//                    "products of colonialism. When we acknowledge and fully understand this we can start to correct it. For this reason, this cause " +
+//                    "supports the amazing and heroic efforts of Falling Whistles and their push for peace.",
             ////gender
             "Our gender equality cause promotes a balanced approach to life by creating equity between the sexes. We believe " +
                     "that we will never reach humanity’s full potential until we fully appreciate women and incorporate them into every aspect of society. " +
@@ -61,7 +61,7 @@ public class cause_data_list {
                     "our efforts to protect the biodiversity we have left to try to prevent this from happening. For this reason, this cause supports the Dandora " +
                     "Music School and their inspiring efforts to educate the youth on wildlife conservation."
     };
-    public static int[] cause_symbol_image = {R.drawable.chooselovecause,R.drawable.waterislifecause,R.drawable.raceequitycause,
+    public static int[] cause_symbol_image = {R.drawable.chooselovecause,R.drawable.waterislifecause,/*R.drawable.raceequitycause,*/
             R.drawable.genderequitycause,R.drawable.sustainablecause,R.drawable.healthylivingcause,R.drawable.incomeequalitycause,R.drawable.wildlifecause};
 
 }

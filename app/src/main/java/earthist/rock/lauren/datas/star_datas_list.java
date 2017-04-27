@@ -12,11 +12,11 @@ public class star_datas_list {
             " and find answers to all questions, keys to all mysteries, treasures you only dreamed you could possess of.",
 
 
-
+            /*
             "Luckyiam is the co-founder of The World Famous Living Legends crew & one of the best solo artists on earth. " +
                     "He has put out many albums independently and is a major contributor to many different groups like Machina Muerte, " +
                     "The Prime w/Sapient and latest project Luck and Lana with the LA DubStep/HipHop collective Kill the Computer. Check out " +
-                    "his work on iTunes and SoundCloud.",
+                    "his work on iTunes and SoundCloud.",*/
 
 
             "I’ve been creating and performing since I could stand, so I could properly project. I come from a family of artists and have had the " +
@@ -49,7 +49,7 @@ public class star_datas_list {
 
 
     /*public static String[] star_name_array = {"The Wanderin GypC","Alison Teal","LuckNLana","Dandora Music","Logan Coats",};*/
-    public static String[] star_name_array = {"The Wanderin GypC", "Luckyiam", "Lana Shea","Jack Brockway", "Ewa", "John Dardenne", "Dandora Music"};
-    public static int[] star_profile_image_array_firstscreen = {R.drawable.star_wandergypc, R.drawable.star_luckiam, R.drawable.lana_photo, R.drawable.jack_photo,R.drawable.ewa_photo,R.drawable.john_photo, R.drawable.star_dandora_music};
-    public static int[] star_profile_circle_array_detailscreen = {R.drawable.star_wandergypc_1, R.drawable.star_luckiam_1, R.drawable.lana_photo_1,R.drawable.jack_photo_1,R.drawable.ewa_photo_1,R.drawable.john_photo_1, R.drawable.star_dandora_music_1};
+    public static String[] star_name_array = {"The Wanderin GypC", /*"Luckyiam", */"Lana Shea","Jack Brockway", "Ewa", "John Dardenne", "Dandora Music"};
+    public static int[] star_profile_image_array_firstscreen = {R.drawable.star_wandergypc, /*R.drawable.star_luckiam, */R.drawable.lana_photo, R.drawable.jack_photo,R.drawable.ewa_photo,R.drawable.john_photo, R.drawable.star_dandora_music};
+    public static int[] star_profile_circle_array_detailscreen = {R.drawable.star_wandergypc_1, /*R.drawable.star_luckiam_1, */R.drawable.lana_photo_1,R.drawable.jack_photo_1,R.drawable.ewa_photo_1,R.drawable.john_photo_1, R.drawable.star_dandora_music_1};
 }
